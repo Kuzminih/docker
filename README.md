@@ -21,7 +21,8 @@
         all unused images
         all build cache
     docker rmi $(docker images -f "dangling=true" -q)
-    examlpe:
+   
+   examlpe:
       docker run -it -p  1234:80  'imagename' 
       -p localhost 1234:80 in docker port
       -it interactive
@@ -33,6 +34,7 @@
     docker build -t 'some iamgename':'TAG' # create image in directory where is dockerfile -t 'TAG'
     docker run 'imagename' # run docker conteiner
     docker run 'image' # if image not downloaded on local host. docker add this image on host then
+    docker system prune -f
 ```
 
 # Network
