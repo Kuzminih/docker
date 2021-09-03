@@ -15,6 +15,12 @@
     docker stop 'name-image' # stop conteiner
     docker up 'name-image' # 
     docker pull 'image' # can doenload it from docker hub
+    docker system prune -a
+        all stopped containers
+        all networks not used by at least one container
+        all unused images
+        all build cache
+    docker rmi $(docker images -f "dangling=true" -q)
     examlpe:
       docker run -it -p  1234:80  'imagename' 
       -p localhost 1234:80 in docker port
