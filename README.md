@@ -181,7 +181,7 @@ docker-compose start 'id' старт определённого контенер
 docker-compose down -v убить волумы
 ```
 # dockerfile to create some images
-Need read documentation && add commands
+Need read documentation && add commands https://docs.docker.com/engine/reference/builder/
 ```
 FROM # image
 FROM nginx
