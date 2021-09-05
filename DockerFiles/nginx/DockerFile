@@ -1,0 +1,15 @@
+FROM centos:centos7
+LABEL rpm_v1
+
+RUN yum install epel-relese -y && yum install nginx \
+adduser -d -g 'www' www \
+mkdir /var/www \
+chown -R www:www /var/www/ \
+chown -R www:www /var/lib/nginx
+COPY index.html
+EXPOSE 80
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
+
+
+
+
