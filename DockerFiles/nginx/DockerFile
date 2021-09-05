@@ -1,7 +1,8 @@
 FROM centos:centos7
 
-RUN yum install epel-relese -y && yum install nginx \
-adduser -d -g 'www' www \
+RUN yum install -y epel-release
+RUN yum install -y nginx
+RUN adduser -g 'www' www \
 mkdir /var/www \
 chown -R www:www /var/www/ \
 chown -R www:www /var/lib/nginx

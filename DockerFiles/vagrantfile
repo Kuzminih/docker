@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+    config.vm.define "dockermaster" do |dockermaster|
+      dockermaster.vm.provider "vb" do |vb|
+        vb.memory = "1024"
+        end
+      dockermaster.vm.box = "centos/7"
+      dockermaster.vm.hostname = "dockermaster"
+      dockermaster.vm.box_url = "centos/7"
+      dockermaster.vm.network "public_network", ip: "10.10.0.10"
+      dockermaster.vm.provision "shell", inline: <<-SHELL
+        yum install epel-release -y && yum install -y yum-utils
+        yum-config-manager \
+          --add-repo \
+          https://download.docker.com/linux/centos/docker-ce.repo
+        yum install docker-ce docker-ce-cli containerd.io -y
+        SHELL
+      dockermaster.vm.provision "file",
+        source: "./nginx/DockerFile",
+        destination: "/home/vagrant/DockerFile"
+      
+    end
+  end
