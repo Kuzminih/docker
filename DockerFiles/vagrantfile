@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vim: set ft=ruby :
-
+#Need Create variebles for this vagrantfile
 Vagrant.configure("2") do |config|
     config.vm.define "dockermaster" do |dockermaster|
       dockermaster.vm.provider "vb" do |vb|
